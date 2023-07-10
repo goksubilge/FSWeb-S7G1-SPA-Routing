@@ -4,13 +4,17 @@ import axios from 'axios';
 export default function Film(props) {
   const [movie, setMovie] = useState();
 
-  let id = 1;
-  // URL'den alınan :id parametresini bu değişkene aktarın
+  let id = 0;
+  // URL'den alınan :id parametresini bu değişkene aktarın 
+  // 4) (test bozulmasın diye buraya statik olarak 1 koymuş, bunu güncelliicem dinamik olcak.)
 
   useEffect(() => {
     axios
       .get(`http://localhost:5001/api/filmler/${id}`) // Bu uç noktayı Postman'le çalışın
       .then(response => {
+        console.log("Film:",response.data);
+        setMovie(response.data);
+          // 3) senin movie objesinde göstermen gereken değer bu diyor movie de gidip if !movie yi çalıştırıyor.
           // Bu kısmı log statementlarıyla çalışın
           // ve burdan gelen response'u 'movie' e aktarın
       })
@@ -19,7 +23,7 @@ export default function Film(props) {
       });
     // Bu effect her `id ` değiştiğinde çalışmalı
     // Bunu nasıl gerçekleştirebiliriz?
-  }, []);
+  }, [id]);
 
   // Yalnızca esnek görevlere geçtiğinizde burdaki yorum etiketini kaldırın
   // const filmiKaydet = evt => { }

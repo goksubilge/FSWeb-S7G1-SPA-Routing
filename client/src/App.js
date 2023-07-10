@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import KaydedilenlerListesi from './Filmler/KaydedilenlerListesi';
+import FilmListesi from './Filmler/FilmListesi';
+import Film from './Filmler/Film';
 
 export default function App () {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
@@ -10,8 +12,10 @@ export default function App () {
   useEffect(() => {
     const FilmleriAl = () => {
       axios
-        .get('http://localhost:5001/api/filmler') // Burayı Postman'le çalışın
+        .get('http://localhost:5001/api/filmler/') // Burayı Postman'le çalışın
         .then(response => {
+          console.log(response.data)
+          setMovieList(response.data)
           // Bu kısmı log statementlarıyla çalışın
           // ve burdan gelen response'u 'movieList' e aktarın
         })
@@ -25,12 +29,14 @@ export default function App () {
   const KaydedilenlerListesineEkle = id => {
     // Burası esnek. Aynı filmin birden fazla kez "saved" e eklenmesini engelleyin
   };
+//1) FilmListesi prop olarak movies almış. o yüzden movies etiketini açıyorum FilmListesi divinin içine.
+//2) sonra Film i import ettim, gidip baktığımda film bilgisi yükleniypr dedi. film.js de if (!movie) kısmı boş çünkü, yalnızca yazı var divin içinde. Onu düzenliyorum.
 
   return (
     <div>
       <KaydedilenlerListesi list={[ /* Burası esnek */]} />
-
-      <div>Bu Div'i kendi Routelarınızla değiştirin</div>
+      <div><Film/></div>
+      <div><FilmListesi movies={movieList}/></div>
     </div>
   );
 }

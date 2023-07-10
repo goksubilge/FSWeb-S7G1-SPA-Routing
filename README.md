@@ -17,8 +17,11 @@ Konular:
 * [ ] `npm start` ya da `node server.js` komutuyla çalıştırın. (Bu işlemle ilgili ilerleyen adımlarda daha açıklayıcı bilgiler bulacaksın)
 * [ ] Başka bir terminal penceresinde `client` klasörüne girin ve `npm install` yazarak kütüphaneleri indirin.
 * [ ] `client` klasöründeyken `npm start` yazarak client uygulamasını çalıştırın.
+(önce birinci terminalde npm install yaptım her zamanki gibi, sonra 2. terminal açıp cd client+enter npm install yaptım.)
+(gitignore klasör başka klasörden eklerken eklerken /client/node_modules oalrak ekleyebilirsin elle.)
 
 * [ ] Öncelikle uygulamanız client üzerinden çalışmaya başlayınca şuradaki gibi bir tarayıcı penceresi göreceksiniz:  [bknz](./Assets/filmler-anasayfa.png) `localhost:3000` (eğer 3000 portu boşta değilse 3001 portu kullanılabilir).
+(ana klasörü 5001 de çalıştıramadım, ama cd client npm start ile 3000 portunu çalıştırdım)
 
 ### Görev 2: MVP (MUÜ)
 
@@ -31,17 +34,17 @@ Uygulamanızı bitirdiğinizde 2 adet route'u olacaktır:
 
 #### Route'ların uygulanması
 
-[React Router 5 dökümantasyonu](https://v5.reactrouter.com/web/guides/quick-start)
+[React Router 5 dökümantasyonu] (https://v5.reactrouter.com/web/guides/quick-start)
 
 * [ ] App componentine Route eklemek için hazılayın (`<Router>` & `<Switch>`)
 * [ ] App dosyanıza 2 adet route ekleyin. (`<Route ... >`)
-  * [ ] `Route` sıralaması hakkında sorun yaşamamak için `exact` propunu inceleyin: [Route exact prop dökümantasyonu](https://v5.reactrouter.com/web/api/Route/exact-bool)  
-  * [ ] Birinci route'unuz `/` olacak ve `FilmListesi` bileşenini yükleyecek. Bu bileşene proplarla filmler apisinden alınan datayı aktarın.
-  * [ ] Diğer route `/filmler/` parametresinden sonra `id` parametresini alacak (örnek: `/filmler/2`, `/filmler/3`). `id` dinamik olacak. Bu route `Film` bileşenini yükleyecek.
+* [ ] `Route` sıralaması hakkında sorun yaşamamak için `exact` propunu inceleyin: [Route exact prop dökümantasyonu](https://v5.reactrouter.com/web/api/Route/exact-bool)  
+* [ ] Birinci route'unuz `/` olacak ve `FilmListesi` bileşenini yükleyecek. Bu bileşene proplarla filmler apisinden alınan datayı aktarın.
+* [ ] Diğer route `/filmler/` parametresinden sonra `id` parametresini alacak (örnek: `/filmler/2`, `/filmler/3`). `id` dinamik olacak. Bu route `Film` bileşenini yükleyecek.
 
 #### İşlevsellik Kazandırın
 
-* [ ] Bir kullanıcı `FilmListesi` içindeki film cardına tıkladığında seçilen filmin detaylarını görebilmeli {`/movies/{tıklanılan film idsi}`.
+* [ ] Bir kullanıcı `FilmListesi` içindeki film cardına tıkladığında seçilen filmin detaylarını görebilmeli {`/movies/{tıklanılan film idsi}`}.
 * [ ] URL'den seçilen film idsini almak için `Film.js` dosyasının 7. satırını düzenlenemeniz gerekir.
 * [ ] `KaydedilenlerListesi` bileşindeki `AnaSayfa` butonuna işlevsellik kazındırın, Anasayfaya geri dönmeli.
 * [ ] Artık fil listesinde ileri geri ilerleyebiliyor olmalısın ve bir filmin detaylarını görebilmelisin.
