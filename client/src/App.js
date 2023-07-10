@@ -5,6 +5,13 @@ import KaydedilenlerListesi from './Filmler/KaydedilenlerListesi';
 import FilmListesi from './Filmler/FilmListesi';
 import Film from './Filmler/Film';
 
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 export default function App () {
   const [saved, setSaved] = useState([]); // Stretch: the ids of "saved" movies
   const [movieList, setMovieList] = useState([]);
@@ -35,8 +42,27 @@ export default function App () {
   return (
     <div>
       <KaydedilenlerListesi list={[ /* Burası esnek */]} />
-      <div><Film/></div>
-      <div><FilmListesi movies={movieList}/></div>
+      
+      
+      <BrowserRouter>
+      <div>
+            {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+            {/* 5) switch aslında if fonksiyonu görevinde. eğer rout um im buysa/ bana FilmListesi divini göster değilse Film divini göster şeklinde. 
+            6) Route daki exact kelimesi bizim bu boş slasch ı sona atmamızı engelliyor 
+             ***** switch route  dönüşümü! şu problemi çözüyor ******
+              URL'ye göre hangi componentlerin uygulamaya takılacağına, mount edileceğine karar vermemizi sağlıyor
+            7) Link: tarayıcıyı yenilemeden componenti değiştirmemizi sağlıyor! */}
+        <Switch>
+          <Route path="/" exact>
+            <div><FilmListesi movies={movieList}/></div> 
+          </Route>
+          <Route path="/filmler">
+            <Film />
+          </Route>
+        </Switch>
+      </div>
+      </BrowserRouter>
     </div>
   );
 }
