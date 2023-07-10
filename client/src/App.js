@@ -9,7 +9,6 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 export default function App () {
@@ -40,11 +39,11 @@ export default function App () {
 //2) sonra Film i import ettim, gidip baktığımda film bilgisi yükleniypr dedi. film.js de if (!movie) kısmı boş çünkü, yalnızca yazı var divin içinde. Onu düzenliyorum.
 
   return (
-    <div>
+      <BrowserRouter>
+      <div>
       <KaydedilenlerListesi list={[ /* Burası esnek */]} />
       
       
-      <BrowserRouter>
       <div>
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -62,7 +61,7 @@ export default function App () {
           </Route>
         </Switch>
       </div>
+      </div>
       </BrowserRouter>
-    </div>
   );
 }

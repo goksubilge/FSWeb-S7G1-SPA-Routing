@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
+// Link importlayıp button u sardım. + App.js de gidip kaydedilenlerListesini Rotuer ın içine aldım!
 export default function KaydedilenlerListesi(props) {
   return (
     <div className="saved-list">
@@ -7,7 +9,7 @@ export default function KaydedilenlerListesi(props) {
       {props.list.map(movie => (
         <span className="saved-movie">{movie.title}</span>
       ))}
-      <div className="home-button">Anasayfa</div>
+      <Link to='/' exact><div className="home-button">Anasayfa</div></Link>
     </div>
   );
 }
